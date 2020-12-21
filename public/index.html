@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="ArNFT_assets/nft-style.css">
+    <%= process.env.AR_ENGINE === 'arjs_image' ? '<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>' : '' %>
+    <%= process.env.AR_ENGINE === 'arjs_location' || process.env.AR_ENGINE === 'arjs_marker'? '<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>' : '' %>
+    <%= process.env.AR_ENGINE === 'mindar' ? '<script src="MindAR_assets/mindar.prod.js"></script>' : '' %>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <%= process.env.AR_ENGINE === 'arjs_location' ? '<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>' : '' %>
+    <%= process.env.AR_ENGINE === 'arjs_marker' ? '<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>' : '' %>
+    <%= process.env.AR_ENGINE === 'arjs_image' || process.env.AR_ENGINE === 'arjs_location' ? '<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>' : '' %>
+  </body>
+</html>
